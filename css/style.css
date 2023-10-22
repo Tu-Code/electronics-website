@@ -25,9 +25,9 @@
     z-index: 99;
 }
 
-.service-image {
-    width: 450px;
-    height: 275px;
+
+.navbar-text {
+    font-size: 30px;
 }
 
 /*** Spinner ***/
@@ -87,16 +87,20 @@
     transition: .5s;
 }
 
+#navbarLogo{
+    font-size: 20px;
+}
+
 .navbar .navbar-brand,
 .navbar a.btn {
     height: 75px;
 }
 
 .navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
+    margin-right: 25px;
+    padding: 20px 0;
     color: var(--dark);
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     outline: none;
@@ -254,6 +258,11 @@
     box-shadow: 0 0 45px rgba(0, 0, 0, .08);
 }
 
+.service-image {
+    width: 450px;
+    height: 275px;
+}
+
 .service-icon {
     position: relative;
     margin: -50px 0 25px 0;
@@ -300,6 +309,11 @@
 
 
 /*** Project Portfolio ***/
+.partner-image {
+    width: 450px;
+    height: 400px;
+}
+
 #portfolio-flters li {
     display: inline-block;
     font-weight: 500;
@@ -316,6 +330,8 @@
 }
 
 .portfolio-img {
+    width: 400px;
+    height: 265px;
     position: relative;
 }
 
