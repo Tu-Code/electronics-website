@@ -307,6 +307,29 @@
     }
 }
 
+/* Add appropriate styles to make it display well */
+.custom-dropdown {
+    /* position: relative; */
+    width: 100%;
+    display: inline-block; /* Add this line */
+    padding: 40px;
+}
+
+.custom-dropdown select {
+    width: 100%;
+    padding: 30px;
+    margin: 30px;
+    border: 1px solid #ccc;
+    display: none;
+    border-radius: 4px;
+    display: block; /* Add this line */
+}
+
+.custom-dropdown select:focus {
+    outline: none;
+    border-color: #007BFF; /* Change the border color on focus as needed */
+}
+
 
 /*** Project Portfolio ***/
 .partner-image {
