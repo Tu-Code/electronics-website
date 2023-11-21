@@ -87,24 +87,63 @@
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 
-  const dialog = document.querySelector("dialog");
-  const showButton = document.querySelector("dialog + button");
-  const closeButton = document.querySelector("dialog button");
+  // const dialog = document.querySelector("dialog");
+  // const showButton = document.querySelector("dialog + button");
+  // const closeButton = document.querySelector("dialog button");
 
-  // "Show the dialog" button opens the dialog modally
-  showButton.addEventListener("click", () => {
-    dialog.showModal();
-  });
+  // // "Show the dialog" button opens the dialog modally
+  // showButton.addEventListener("click", () => {
+  //   dialog.showModal();
+  // });
 
-  // "Close" button closes the dialog
-  closeButton.addEventListener("click", () => {
-    dialog.close();
-  });
-  // Close the dialog if click is outside the modal
-  dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) {
-      dialog.close();
+  // // "Close" button closes the dialog
+  // closeButton.addEventListener("click", () => {
+  //   dialog.close();
+  // });
+  // // Close the dialog if click is outside the modal
+  // dialog.addEventListener("click", (event) => {
+  //   if (event.target === dialog) {
+  //     dialog.close();
+  //   }
+  // });
+
+  function openModal(modalId) {
+    const dialog = document.getElementById(modalId);
+    if (dialog) {
+        dialog.showModal();
     }
-  });
+}
+
+function closeModal(modalId) {
+    const dialog = document.getElementById(modalId);
+    if (dialog) {
+        dialog.close();
+    }
+}
+
+// "Show the dialog" button opens the dialog modally
+document.querySelectorAll(".qt-dialog + button").forEach((button) => {
+    button.addEventListener("click", () => {
+        const modalId = button.previousElementSibling.id;
+        openModal(modalId);
+    });
+});
+
+// "Close" button closes the dialog
+document.querySelectorAll(".qt-dialog button").forEach((closeButton) => {
+    closeButton.addEventListener("click", () => {
+        const modalId = closeButton.parentElement.parentElement.id;
+        closeModal(modalId);
+    });
+});
+
+// Close the dialog if click is outside the modal
+document.addEventListener("click", (event) => {
+    if (event.target.tagName === "DIALOG") {
+        const modalId = event.target.id;
+        closeModal(modalId);
+    }
+});
+
   
 })(jQuery);
