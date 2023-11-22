@@ -3,47 +3,92 @@ work with Netherlands
 
 partners: https://hinckley.com.ng/collect-and-recycle-service/, https://www.thegef.org/, https://sogoewaste.com/category/e-waste/
 
- <!-- <dialog class="qt-dialog">
-                <h6 class="text-primary">Free Quote</h6>
-                <h1 class="mb-4">Get A Free Quote</h1>
-                <p class="mb-4 pb-2">
-                    Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu
-                    diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet
-                    lorem sit clita duo justo erat amet
-                </p>
-                <form>
-                    <div class="row g-3">
-                        <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control border-0" placeholder="Your Name"
-                                style="height: 55px" />
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <input type="email" class="form-control border-0" placeholder="Your Email"
-                                style="height: 55px" />
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <input type="text" class="form-control border-0" placeholder="Your Mobile Number"
-                                style="height: 55px" />
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <select class="form-select border-0" style="height: 55px">
-                                <option selected>Select A Service</option>
-                                <option value="1">Community electronic waste disposal</option>
-                                <option value="2">
-                                    Individual electronic waste disposal
-                                </option>
-                                <option value="3">Electronic repairs</option>
-                                <option value="3">Solar electronic repairs</option>
-                            </select>
-                        </div>
-                        <div class="col-12">
-                            <textarea class="form-control border-0" placeholder="Special Note"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </dialog> -->
+const express = require('express');
+const router = express.Router();
+const AgencyService = require('./AgencyService'); // Adjust the path based on your file structure
+
+// POST endpoint for agency creation and file uploads
+router.post('/createAgency', upload.fields([{ name: 'logoUpload', maxCount: 1 }, { name: 'certificationUpload', maxCount: 5 }]), async (req, res) => {
+    try {
+        const formData = req.body;
+        const logoFile = req.files['logoUpload'][0]; // Assuming only one logo file
+        const certificateFiles = req.files['certificationUpload']; // Array of certificate files
+
+        // Create agency and save uploaded file paths
+        await AgencyService.createAgency(formData, logoFile, certificateFiles);
+
+        res.status(200).send('Agency created successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error creating agency');
+    }
+});
+
+module.exports = router;
+
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const Agency = require('./AgencyModel'); // Adjust the path based on your file structure
+
+class AgencyService {
+    static async createAgency(formData, logoFile, certificateFiles) {
+        try {
+            const {
+                agencyName,
+                agencyEmail,
+                agencyWebsite,
+                agencyPhone,
+                state,
+                agencyArea,
+                password,
+                agencySpeciality,
+                agencyIntroduction,
+                agencyPartnerships,
+                agencyInformation,
+            } = formData;
+
+            const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+            // Process uploaded files and get file paths
+            const { logoPath, certificatePaths } = await this.saveUploadedFiles(logoFile, certificateFiles);
+
+            const newAgency = new Agency({
+                agencyName,
+                agencyEmail,
+                agencyWebsite,
+                agencyPhone,
+                agencyState: state,
+                agencyArea,
+                password: hashedPassword,
+                agencySpecialty: agencySpeciality,
+                agencyIntroduction,
+                agencyPartnerships,
+                additionalInformation: agencyInformation,
+                agencyLogo: logoPath,
+                agencyCertificate: certificatePaths,
+            });
+
+            await newAgency.save();
+        } catch (error) {
+            throw new Error('Error creating agency');
+        }
+    }
+
+    static async saveUploadedFiles(logoFile, certificateFiles) {
+        try {
+            const logoPath = '/uploads/' + logoFile.filename;
+
+            const certificatePaths = certificateFiles.map(file => '/uploads/' + file.filename);
+
+            return {
+                logoPath: logoPath,
+                certificatePaths: certificatePaths,
+            };
+        } catch (error) {
+            throw new Error('Error saving uploaded files.');
+        }
+    }
+}
+
+module.exports = AgencyService;

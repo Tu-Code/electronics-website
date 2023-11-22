@@ -88,18 +88,17 @@
                 <a href="certification-services.html" class="nav-item nav-link">E-Waste Certification</a>
                 <a href="disposal-services.html" class="nav-item nav-link">E-Waste Disposal</a>
                 <a href="solar-electronics.html" class="nav-item nav-link">Solar Electrnoics</a>
+                <a href="partnership-account.html" class="nav-item nav-link active">Partnerships</a>
                 <!-- <a href="#" class="nav-item nav-link">Partnership</a> -->
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Partnership</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="disposal-account.html" class="dropdown-item active">Disposal Agencies</a>
+                        <a href="disposal-account.html" class="dropdown-item">Disposal Agencies</a>
                         <a href="#" class="dropdown-item">Recycling Agencies</a>
                         <a href="#" class="dropdown-item">Electronics Repair</a>
                         <a href="#" class="dropdown-item">Community Awareness</a>
-                        <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a> -->
                     </div>
-                </div>
+                </div> -->
                 <a href="#" class="nav-item nav-link">Nigerian Owned</a>
             </div>
            
@@ -113,12 +112,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-3 mb-3">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Sign Up For A Disposal Agency Partner Account</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Sign Up For A Partner Account</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                     <li class="breadcrumb-item"><a class="text-white" href="#">Partnerships</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Disposal Agencies</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Account</li>
                 </ol>
             </nav>
         </div>
@@ -132,42 +131,42 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-9 contact-text py-5 wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-lg-5 ps-lg-0">
-                        <h6 class="text-primary">Disposal Agency Information</h6>
+                        <h6 class="text-primary">Agency Information</h6>
                         <h1 class="mb-4">Information about your agency</h1>
                         <p class="mb-4">
-                            ElectroGreen will need to collect certain information about your Disposal Agency to get you up and running on our platform, connect you with investors and comunities in need of your services.
+                            ElectroGreen will need to collect certain information about your agency to get you up and running on our platform, connect you with investors and comunities in need of your services.
                         </p>
-                        <form>
+                        <form id="applicationForm" action="/agency/submitApplication" method="POST" enctype="multipart/form-data">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Agency's Name">
+                                        <input type="text" class="form-control" id="name" name="agencyName" placeholder="Your Agency's Name">
                                         <label for="name">Agency Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Agency's Email">
+                                        <input type="email" class="form-control" id="email" name="agencyEmail" placeholder="Your Agency's Email">
                                         <label for="email">Agency Email</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="website" placeholder="Your Agency's Website Link">
+                                        <input type="text" class="form-control" id="website" name="agencyWebsite" placeholder="Your Agency's Website Link">
                                         <label for="website">Agency Website</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="phone" class="form-control" id="phone" placeholder="Your Agency's Phone Number">
+                                        <input type="phone" class="form-control" id="phone" name="agencyPhone" placeholder="Your Agency's Phone Number">
                                         <label for="phone">Agency Phone Number</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select" id="state" aria-label="Operational Area">
+                                        <select class="form-select" id="state" name="state" aria-label="Operational Area">
                                             <option selected disabled>Select State</option>
-                                            <option value="Abia">National</option>
+                                            <option value="National">National</option>
                                             <option value="Abia">Abia</option>
                                             <option value="Adamawa">Adamawa</option>
                                             <option value="Akwa Ibom">Akwa Ibom</option>
@@ -210,26 +209,49 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="area" placeholder="Your Agency's Area of Operation">
+                                        <input type="text" class="form-control" id="area" name="agencyArea" placeholder="Your Agency's Area of Operation">
                                         <label for="area">Area of operation e.g Lekki..</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
+
+                                <div class="col-md-6">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="e.g Solar electronic disposal, commercial sized disposal, .." id="speciality" style="height: 100px"></textarea>
-                                        <label for="speciality">Areas of speciality</label>
+                                        <select class="form-select" id="agencySpeciality" name="agencySpeciality" id="agencySpeciality" aria-label="Area of Speciality">
+                                            <option selected disabled>What services do you offer?</option>
+                                            <option value="first">Electronic Waste Disposal</option>
+                                            <option value="second">Solar Electronics</option>
+                                            <option value="third">Nigerian Owned</option>
+                                            <option value="*">All</option>
+                                        </select>
+                                        <label for="agencySpeciality">Area of Speciality</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
+
+                                <div class="col-md-6">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Current partnerships with external organizations" id="speciality" style="height: 100px"></textarea>
-                                        <label for="speciality">Current partnerships</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                        <label for="password">Create a password</label>
                                     </div>
                                 </div>
+                                
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="e.g Solar electronic disposal, commercial sized disposal, .." id="investment" style="height: 150px"></textarea>
-                                        <label for="investment">Fill this optiinal section with information about your investment eligibility and details of your need for such opportunities</label>
+                                        <textarea class="form-control" placeholder="Introduce your agency in one line" id="agencyIntroduction" name="agencyIntroduction" style="height: 100px"></textarea>
+                                        <label for="agencyIntroduction">Introduce your agency in one line</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Current partnerships with external organizations" id="partnerships" name="agencyPartnerships" style="height: 100px"></textarea>
+                                        <label for="partnerships">Current partnerships</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="e.g Solar electronic disposal, commercial sized disposal, .." id="investment" name="agencyInformation" style="height: 150px"></textarea>
+                                        <label for="investment">Fill this optional section with information about your investment eligibility and details of your need for such opportunities</label>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3">
@@ -244,9 +266,19 @@
                                         <input type="file" class="form-control" id="certificationUpload" name="certificationUpload" multiple>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit Application</button>
+                                <!-- TODO: media query to align buttons on small screen -->
+
+                                <div class="form-floating">
+                                    <div class="row">
+                                        <div class="col-md-6 order-md-2 d-flex justify-content-end">
+                                            <a href="partnership-login.html" class="btn btn-primary rounded-pill py-3 px-5">Already have an account? Log in</a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit Application</button>
+                                        </div>
+                                    </div>
                                 </div>
+                                                               
                             </div>
                         </form>
                     </div>
@@ -356,6 +388,35 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+
+            // Check if status is 'success' and display the popup
+            if (status === 'success') {
+                // This is just an example of showing an alert as a popup
+                alert('Application submitted successfully!');
+            }
+
+            // Assuming your form ID is 'applicationForm'
+            const applicationForm = document.getElementById('applicationForm');
+
+            // Add a listener to the form submission
+            applicationForm.addEventListener('submit', function(event) {
+                // Prevent the default form submission behavior
+                event.preventDefault();
+
+                // You can perform additional actions here before submitting the form
+                // For example, you can validate inputs or show a confirmation modal
+
+                // Then submit the form
+                this.submit();
+            });
+        });
+    </script>
+      
 </body>
 
 </html>

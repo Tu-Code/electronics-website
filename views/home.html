@@ -93,23 +93,22 @@
                 <a href="certification-services.html" class="nav-item nav-link">E-Waste Certification</a>
                 <a href="disposal-services.html" class="nav-item nav-link">E-Waste Disposal</a>
                 <a href="solar-electronics.html" class="nav-item nav-link">Solar Electronics</a>
+                <a href="partnership-account.html" class="nav-item nav-link">Partnerships</a>
                 <!-- <a href="#" class="nav-item nav-link">Partnership</a> -->
-                <div class="nav-item dropdown">
+                <!-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Partnership</a>
                     <div class="dropdown-menu bg-light m-0">
                         <a href="disposal-account.html" class="dropdown-item">Disposal Agencies</a>
                         <a href="#" class="dropdown-item">Recycling Agencies</a>
                         <a href="#" class="dropdown-item">Electronics Repair</a>
                         <a href="#" class="dropdown-item">Community Awareness</a>
-                        <!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a> -->
                     </div>
-                </div>
+                </div> -->
                 <a href="#" class="nav-item nav-link">Nigerian Owned</a>
             </div>
-           
+
             <a href="contact.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Contact<i
-                class="fa fa-arrow-right ms-3"></i></a>
+                    class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -484,7 +483,13 @@
                     </ul>
                 </div>
             </div>
+
             <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.5s">
+                <!-- first - all
+                second - ewaste disposal
+                third - solar electronics
+                fourth - nigerian owned -->
+
                 <div class="col-lg-4 col-md-6 portfolio-item first">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid partner-image" src="img/hinckley-recycling.png" alt="" />
@@ -625,7 +630,7 @@
                     </div>
                     <div class="pt-3">
                         <p class="text-primary mb-0">
-                            E-Terra- E-Waste Awareness Program
+                            E-Terra - E-Waste Awareness Program
                         </p>
                         <hr class="text-primary w-25 my-2" />
                         <h5 class="lh-base">
@@ -681,6 +686,26 @@
                         </h5>
                     </div>
                 </div>
+
+                 <!-- auto approve - currently displays everywhere-->
+                 <div id="app" class="col-lg-4 col-md-6 portfolio-item" v-for="agency in agencies" :key="agency._id" :class="agency.agencySpecialty || 'first'">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid partner-image" :src="agency.agencyLogo" alt="" style="width: 27rem"/>
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" :href="agency.agencyLogo"
+                                data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1"
+                                :href="agency.agencyWebsite"><i class="fa fa-link"></i></a>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                        <p class="text-primary mb-0">{{ agency.agencyName }}</p>
+                        <hr class="text-primary w-25 my-2" />
+                        <h5 class="lh-base">{{ agency.agencyIntroduction }}</h5>
+                    </div>
+                </div>
+                <!-- end auto approve -->
+
             </div>
         </div>
     </div>
@@ -987,9 +1012,12 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+
 </body>
 
 </html>
