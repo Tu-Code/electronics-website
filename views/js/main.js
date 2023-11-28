@@ -87,26 +87,6 @@
     portfolioIsotope.isotope({ filter: $(this).data("filter") });
   });
 
-  // const dialog = document.querySelector("dialog");
-  // const showButton = document.querySelector("dialog + button");
-  // const closeButton = document.querySelector("dialog button");
-
-  // // "Show the dialog" button opens the dialog modally
-  // showButton.addEventListener("click", () => {
-  //   dialog.showModal();
-  // });
-
-  // // "Close" button closes the dialog
-  // closeButton.addEventListener("click", () => {
-  //   dialog.close();
-  // });
-  // // Close the dialog if click is outside the modal
-  // dialog.addEventListener("click", (event) => {
-  //   if (event.target === dialog) {
-  //     dialog.close();
-  //   }
-  // });
-
   function openModal(modalId) {
     const dialog = document.getElementById(modalId);
     if (dialog) {
