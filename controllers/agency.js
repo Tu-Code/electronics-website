@@ -1,7 +1,4 @@
 const AgencyService = require('../service/agency');
-const {
-    Agency
-} = require('../models/agency');
 
 class AgencyController {
 

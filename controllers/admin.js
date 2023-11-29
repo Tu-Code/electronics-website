@@ -1,6 +1,3 @@
-// when logged in after submit button, the page will change from log in to 
-// new page with agency/admin info and log out (will go back to log in oage) option.
-
 const bcrypt = require('bcrypt');
 const { Admin } = require('../models/admin');
 
