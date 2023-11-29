@@ -438,6 +438,7 @@
 
 .team-item img {
     border-radius: 8px 60px 0 0;
+    height: 450px;
 }
 
 .team-item .team-social {
@@ -566,18 +567,13 @@
 }
 
 /***Partnerships***/
-@media(min-width: 390px){
-    .ptBtn{
-        width: 14rem;
-        height: 4rem;
-        margin-bottom: 1rem;
-        .btn{
-            padding: none;
-            font-size: small;
-        }
+@media (max-width: 768px) {
+    .ptBtn {
+      justify-content: flex-start !important;
+      margin-bottom: 10px;
     }
-}
-
+  }
+  
 
 /*** Footer ***/
 .footer .btn.btn-social {
@@ -629,6 +625,11 @@
 
 .footer .copyright a:hover {
     color: var(--primary);
+}
+
+.footer .gallery-img{
+    width: 80px;
+    height: 60px;
 }
 
 .qt-dialog{
