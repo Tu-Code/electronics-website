@@ -87,25 +87,14 @@
                 <a href="home.html" class="nav-item nav-link active">Home</a>
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
-                <!-- <a href="project.html" class="nav-item nav-link">Projects</a> -->
+
                 <a href="team.html" class="nav-item nav-link">Our Team</a>
                 <a href="repair.html" class="nav-item nav-link">Electronics Repair</a>
                 <a href="certification-services.html" class="nav-item nav-link">E-Waste Certification</a>
                 <a href="disposal-services.html" class="nav-item nav-link">E-Waste Disposal</a>
                 <a href="solar-electronics.html" class="nav-item nav-link">Solar Electronics</a>
                 <a href="partnership-account.html" class="nav-item nav-link">Partnerships</a>
-                <!-- <a href="#" class="nav-item nav-link">Partnership</a>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Partnership</a>
-                    <div class="dropdown-menu bg-light m-0">
-                        <a href="disposal-account.html" class="dropdown-item">Disposal Agencies</a>
-                        <a href="#" class="dropdown-item">Recycling Agencies</a>
-                        <a href="#" class="dropdown-item">Electronics Repair</a>
-                        <a href="community-awareness.html" class="dropdown-item">Community Awareness</a>
-                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div> -->
+
                 <a href="nigerian-owned.html" class="nav-item nav-link">Nigerian</a>
             </div>
 
@@ -714,21 +703,24 @@
                 </div>
 
                 <!-- auto approve - currently displays everywhere-->
-                <div id="app" class="col-lg-4 col-md-6 portfolio-item" v-for="agency in agencies" :key="agency._id"
-                    :class="agency.agencySpecialty || 'first'">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid partner-image" :src="agency.agencyLogo" alt="" style="width: 27rem" />
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1" :href="agency.agencyLogo"
-                                data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1"
-                                :href="agency.agencyWebsite"><i class="fa fa-link"></i></a>
+                <div id="app">
+                    <div class="col-lg-4 col-md-6 portfolio-item" v-for="agency in agencies" :key="agency._id"
+                        :class="agency.agencySpecialty || 'first'"
+                        style="position: absolute; left: 431px; top: 1416px;">
+                        <div class="portfolio-img rounded overflow-hidden">
+                            <img class="img-fluid partner-image" :src="agency.agencyLogo" alt="" style="width: 27rem" />
+                            <div class="portfolio-btn">
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1"
+                                    :href="agency.agencyLogo" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-lg-square btn-outline-light rounded-circle mx-1"
+                                    :href="agency.agencyWebsite"><i class="fa fa-link"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="pt-3">
-                        <p class="text-primary mb-0">{{ agency.agencyName }}</p>
-                        <hr class="text-primary w-25 my-2" />
-                        <h5 class="lh-base">{{ agency.agencyIntroduction }}</h5>
+                        <div class="pt-3">
+                            <p class="text-primary mb-0">{{ agency.agencyName }}</p>
+                            <hr class="text-primary w-25 my-2" />
+                            <h5 class="lh-base">{{ agency.agencyIntroduction }}</h5>
+                        </div>
                     </div>
                 </div>
                 <!-- end auto approve -->

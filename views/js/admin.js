@@ -22,7 +22,8 @@ new Vue({
             'all': '*',
             'disposal': 'first',
             'solar': 'second',
-            'nigerian': 'third'
+            'nigerian': 'third',
+            'repair': 'fourth'
         }
     },
 
