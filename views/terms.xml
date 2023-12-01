@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<!DOCTYPE document [
+    <!ENTITY nbsp "&#160;">
+]>
+<document>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+    <h1>Terms and Conditions</h1>
+    <p>Last updated: [19/11/2023]</p>
+    <p>By accessing and using our website, you agree to comply with and be bound by the following terms and conditions
+        of use. If you do not agree with any part of these terms and conditions, please do not use our website.</p>
+
+    <section>
+        <h2>1. Electronic Products</h2>
+        <p>We provide information and services related to electronic products. The content on our website is for
+            informational purposes only, and we do not guarantee the accuracy or completeness of the information provided.
+            Any reliance on the material on this site is at your own risk.</p>
+        <subsection>
+            <title>Use of Products</title>
+            <p>a. Our electronic products are intended for personal, non-commercial use.</p>
+            <p>b. You may not modify, adapt, reverse engineer, decompile, disassemble, or create derivative works based on our
+                electronic products.</p>
+        </subsection>
+    </section>
+
+    <!-- Placeholder for spacing -->
+    <emptySpace/>
+
+    <section>
+        <h2>2. User Accounts</h2>
+        <p>To access certain features of our website, you may be required to create a user account. You are responsible for
+            maintaining the confidentiality of your account and password and for restricting access to your computer. You
+            agree to accept responsibility for all activities that occur under your account.</p>
+    </section>
+
+    <!-- Placeholder for spacing -->
+    <emptySpace/>
+
+    <section>
+        <h2>3. Privacy Policy</h2>
+        <p>Our privacy policy governs the collection, use, and storage of personal information. By using our website, you
+            consent to the terms of our privacy policy.</p>
+    </section>
+
+    <!-- Placeholder for spacing -->
+    <emptySpace/>
+
+    <section>
+        <h2>4. Limitation of Liability</h2>
+        <p>a. In no event shall [ElectroGreen] be liable for any direct, indirect, incidental, special, or consequential
+            damages arising out of or in any way connected with the use of our electronic products.</p>
+        <p>b. [ElectroGreen]'s total liability under these terms and conditions shall not exceed the amount paid by you for
+            the electronic product. </p>
+    </section>
+
+    <!-- Placeholder for spacing -->
+    <emptySpace/>
+
+    <section>
+        <h2>5. Governing Law</h2>
+        <p>These terms and conditions are governed by and construed in accordance with the laws of Federal Republic of
+            Nigeria/Ogun State and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+    </section>
+</body>
+
+
+</document>
